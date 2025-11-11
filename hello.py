@@ -1,5 +1,5 @@
 # import Flask module
-from flask import Flask
+from flask import Flask, render_template
 # create Flask app instance
 app = Flask(__name__, template_folder='views')
 # define route for the root URL
@@ -9,13 +9,13 @@ def hello_world():
 # define route for a template rendering
 @app.route('/about')
 def about():
-    return render_template
-    ('about.html')
+    title = "About Page"
+    return render_template('about.html', title=title)
 
 @app.route('/contact')
 def contact():
-    return render_template
-    ('contact.html')
+    title = "Contact Page"
+    return render_template('contact.html', title=title) 
 # run the app
 if __name__ == '__main__':
     app.run(debug=True)

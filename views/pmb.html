@@ -1,0 +1,12 @@
+{% extends "main.html" %} 
+
+{% block content%} 
+    <form action="/pmb" method="post">
+        <div class="row">
+            <div class="col form-group">
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" class="form-control border border-secondary">
+            </div>
+        </div>
+    </form>
+{% endblock %}
