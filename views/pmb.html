@@ -1,7 +1,8 @@
 {% extends "main.html" %}
 
 {% block content%} 
-    <form action="/pmb" method="post">
+    <form action="/pmb" method="post"
+        enctype="multipart/form-data">
         <div class="row">
             <div class="col form-group">
                 <label for="nama">Nama</label>
