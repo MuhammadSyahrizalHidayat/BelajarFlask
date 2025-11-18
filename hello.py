@@ -1,5 +1,7 @@
 # import Flask module
 from flask import Flask, render_template
+from flask import request
+
 # create Flask app instance
 app = Flask(__name__, template_folder='views')
 # define route for the root URL
@@ -13,8 +15,17 @@ def about():
     title = "About Page"
     return render_template('about.html', title=title)
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        #Proses data form di sini 
+        nama = request.form['nama']
+        email = request.form['email']
+        pesan = request.form['pesan']
+
+        #Tampilan pada terminal
+        print(f"Nama: {nama}, Email: {email}, Pesan: {pesan}")
+
     title = "Contact Page"
     return render_template('contact.html', title=title)
 
