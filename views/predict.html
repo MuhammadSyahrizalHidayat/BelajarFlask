@@ -171,6 +171,9 @@
     </div>
 
     <script>
+        document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
         document.getElementById('diabetesForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
