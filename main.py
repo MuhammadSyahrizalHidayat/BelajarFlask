@@ -1,10 +1,10 @@
 import pandas as pd
 import pickle
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS # Import Flask-CORS
 
 # Membuat aplikasi Flask
-app = Flask(__name__)
+app = Flask(__name__, template_folder='views')
 
 # Aktifkan CORS
 CORS(app) # Mengizinkan semua domain
@@ -16,7 +16,7 @@ with open('model.pkl', 'rb') as file:
     # Endpoint untuk halaman home /
     @app.route('/')
     def welcome():
-        return "<h1>Selamat Datang di API DS Model</h1>"
+        return render_template('predict.html')
 
     # Endpoint untuk memprediksi diabetes
     @app.route('/predict', methods=['POST'])
